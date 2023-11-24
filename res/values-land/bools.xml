@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="unisdk__config_landscape">true</bool>
+    <bool name="netease_mpay_oversea__orientation_landscape">true</bool>
+    <bool name="netease_mpay_codescanner__config_landscape">true</bool>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <WebView android:id="@id/stzb_webview" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/layout_bottom" android:background="#ff1e1a1b" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageButton android:id="@id/btn_backward" android:background="@drawable/c3d_web_btn_left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="10.0dip" android:scaleType="center" android:layout_weight="0.0" android:contentDescription="@string/backward_description" />
+        <ImageButton android:id="@id/btn_forward" android:background="@drawable/c3d_web_btn_left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:scaleType="center" android:layout_weight="0.0" android:contentDescription="@string/forward_description" android:rotation="180.0" />
+        <ImageButton android:id="@id/btn_refresh" android:background="@drawable/c3d_web_btn_refresh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:scaleType="center" android:layout_weight="0.0" android:contentDescription="@string/refresh_description" />
+        <Space android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <ImageButton android:id="@id/btn_close" android:background="@drawable/c3d_web_btn_close" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:scaleType="center" android:layout_weight="0.0" android:contentDescription="@string/close_description" android:rotation="180.0" style="@android:style/Widget.DeviceDefault.ImageButton" />
+        <TextView android:textColor="#ffe8dfb9" android:id="@id/txt_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="30.0dip" android:layout_marginBottom="10.0dip" android:text="@string/txt_tips" android:layout_weight="0.0" android:contentDescription="@string/txt_tips" />
+    </LinearLayout>
+</LinearLayout>

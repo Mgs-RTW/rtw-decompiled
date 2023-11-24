@@ -1,0 +1,230 @@
+﻿<ppg3d>
+	<modules>
+		<module
+			Name		= 'Python'
+			File		= 'python.dll'
+		/>
+		<module
+			Name		= 'Collision'
+			File		= 'collision.dll'
+		/>
+		<module
+			Name		= 'Detour'
+			File		= 'detour.dll'
+		/>
+		<module
+			Name		= 'world2d'
+			File		= 'world2d.dll'
+		/>
+	</modules>
+	
+	<!--WindowClientWidth & WindowClientHeight 测试尺寸 1280 * 720 或者 960 * 640; Iphone6-8 尺寸1334 * 750-->
+	<!--FixedLogicRate & LimitDisplayRate 真机必须明确设置( 不设置时默认为 True, 建议设置为 False )-->
+	<!--如果为True或未配置，会导致安卓渲染帧率超低（Render 2.0fps）。此值是用于追帧，但手机上没需要，而且安卓存在sleep的bug，导致帧率低下-->
+	<client
+		WindowClientWidth	= '1334'
+		WindowClientHeight	= '750'
+		ResourceRoot		= '.\res'
+		LimitDisplayRate	= 'False'
+		ShowLogWindow		= 'True'
+		UsingAppDataDir		= 'True'
+		FixedLogicRate 		= 'False'
+		PCFixedLogicRate	= 'False'
+		UseCADisplayLink 	= 'True'
+		DumpType			= '0'
+		DumpPath			= 'dumps'
+		ShowDumpDlg			= 'False'
+		UseNewShadow 		= "False"
+		World				= 'mix'
+		>
+		<uis>
+			<cocosui Passing = 'True'/>
+			<nxgui Passing = 'False' />
+			<pygame Passing = 'False' />
+		</uis>
+	</client>
+    
+	<log
+			Level='30'
+			LogUnencrypted = 'True'
+	/>
+
+	<cocosui
+			LogLevel = '30'
+			EnableBatchOptimize = "True"
+			CSBCache = "True"
+			UseScissorOverStencil="False">
+		<MergeSprite Enabled = "True" >
+			<MergeSprite
+				Name = "icon"
+				Algorithm = "MaxRects"
+				TextureSize = "1024"
+			/>
+		</MergeSprite>
+	</cocosui>
+
+	<nxgui
+	DefaultFont = "ui/fonts/king.ttf"
+	DefaultShader = "shader/built_in/nxgui/nxgui_default.nfx"
+	DefaultTextShader = "shader/built_in/nxgui/nxgui_text.nfx"
+	/>
+	
+	<!--EnableRenderThread 控制是否开启多线程渲染-->
+	<render
+		UseMetal						= 'True'
+		Depth						= '32'
+		MultiSample					= '0'
+		VSync						= 'False'
+		EnableShadowMap				= 'True'
+		EnableDepthShadow			= 'True'
+		EnableESM					= 'False'
+		EnableRenderThread			= 'True'
+		EnableDeviceThread			= 'True'
+		UseClassifiedVertexPool		= 'True'
+        TextureSuffix               = '.astc'
+        RedirectBackbuffer 			= 'True'
+		MaxPointLight               = '4'
+		>
+		<custom_attrib enable = 'True'>
+			<position attrib = '0' />
+			<blendWeights attrib = '1' />
+			<normal attrib = '2' />
+			<diffuse attrib = '3' />
+			<specular attrib = '4' />
+			<blendIndices attrib = '5' />
+			<texcoord0 attrib = '6' />
+			<texcoord1 attrib = '7' />
+			<texcoord2 attrib = '8' />
+			<tangent attrib = '14' />
+		</custom_attrib>
+	</render>
+	
+	<rsync
+		Enable          = 'False'
+		>
+	</rsync>
+	
+	<!--HardwareInstancing(True), ShaderInstancing(True), MergeStaticModel(True), SubMeshBatching(True), MaxShaderInstancingBatchSize(30)为合批渲染的开关选项, 不需要合批渲染时可以直接删除这些属性-->
+	<!--neox.xml的world节点下打开 CrashOnInvalidGis = 'True' 跑游戏，遇到有问题的gis会直接crash，这一步很重要，外放前一定要检查-->
+	<!--MergeDynamicModel 控制骨骼动画合并批次渲染-->
+	<world
+		UseInstancePool					= 'False'
+		GpuSkinningEnable				= 'False'
+		PixelDecal						= 'False'
+		GpuParticle						= 'False'
+		
+		MergeDynamicModel				= 'True'
+		MergeStaticModel				= 'True'
+		SubMeshBatching					= 'True'
+		HardwareInstancing				= 'True'
+		ShaderInstancing				= 'True'
+		MaxShaderInstancingBatchSize	= '30'
+		
+		EnableVegetation				= 'True'
+		EnableMergeAlpha				= 'True'
+		CrashOnInvalidGis				= 'True'
+		EnableUpdateNormal				= 'False'
+		>
+	</world>
+	
+	<python
+		Optimize						= 'True'
+		ThreadEnable					= 'True'
+		>
+	</python>
+
+	<filesystems>
+		<filesystem name='res'>
+			<loader name='discrete' opener='os' root='%DOC_DIR%\res_gui' depth = '0' encode_path='True' encode_content='True' />
+			<loader name='indexed_discrete' opener='os' root='%DOC_DIR%\res_builtin' depth = '0' encode_path='True' encode_content='True' />
+			<loader name='indexed_discrete' opener='os' root='%DOC_DIR%\res' depth = '0' encode_path='True' encode_content='True' />
+			<loader name='discrete' opener='os' root='%DOC_DIR%\res_builtin' depth = '0' encode_path='True' encode_content='True' />
+			<loader name='discrete' opener='os' root='%DOC_DIR%\res' depth = '0' encode_path='True' encode_content='True' />
+
+			<loader name='discrete' opener='os' root='%WORK_DIR%\res_builtin' depth = '0'/>
+			<loader name='discrete' opener='os' root='%WORK_DIR%\res' depth = '0'/>
+			
+			<loader name='npk' opener='os' root='%DOC_DIR%\etc_res' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\res_builtin' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\world3d_1' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\world3d_2' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\world3d_3' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\ui' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\ui_1' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\ui_2' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\ui_3' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\others' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\scenes3d' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\model_1' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\model_2' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\model_3' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\model_hero_1' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\model_hero_2' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\model_hero_3' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\model_unit_1' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\model_unit_2' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\model_unit_3' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\wwise_1' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\wwise_2' depth = '0'/>
+
+			<loader name='npk' opener='obb' root='res_builtin' depth = '0'/>
+			<loader name='npk' opener='obb' root='world3d_1' depth = '0'/>
+			<loader name='npk' opener='obb' root='world3d_2' depth = '0'/>
+			<loader name='npk' opener='obb' root='world3d_3' depth = '0'/>
+			<loader name='npk' opener='obb' root='ui' depth = '0'/>
+			<loader name='npk' opener='obb' root='ui_1' depth = '0'/>
+			<loader name='npk' opener='obb' root='ui_2' depth = '0'/>
+			<loader name='npk' opener='obb' root='ui_3' depth = '0'/>
+			<loader name='npk' opener='obb' root='others' depth = '0'/>
+			<loader name='npk' opener='obb' root='scenes3d' depth = '0'/>
+			<loader name='npk' opener='obb' root='model_1' depth = '0'/>
+			<loader name='npk' opener='obb' root='model_2' depth = '0'/>
+			<loader name='npk' opener='obb' root='model_3' depth = '0'/>
+			<loader name='npk' opener='obb' root='model_hero_1' depth = '0'/>
+			<loader name='npk' opener='obb' root='model_hero_2' depth = '0'/>
+			<loader name='npk' opener='obb' root='model_hero_3' depth = '0'/>
+			<loader name='npk' opener='obb' root='model_unit_1' depth = '0'/>
+			<loader name='npk' opener='obb' root='model_unit_2' depth = '0'/>
+			<loader name='npk' opener='obb' root='model_unit_3' depth = '0'/>
+			<loader name='npk' opener='obb' root='wwise_1' depth = '0'/>
+			<loader name='npk' opener='obb' root='wwise_2' depth = '0'/>
+
+
+			<loader name='npk' opener='asset' root='%DOC_DIR%\etc_res' depth = '0'/>
+			<loader name='npk' opener='asset' root='res_builtin' depth = '0'/>
+			<loader name='npk' opener='asset' root='world3d_1' depth = '0'/>
+			<loader name='npk' opener='asset' root='world3d_2' depth = '0'/>
+			<loader name='npk' opener='asset' root='world3d_3' depth = '0'/>
+			<loader name='npk' opener='asset' root='ui' depth = '0'/>
+			<loader name='npk' opener='asset' root='ui_1' depth = '0'/>
+			<loader name='npk' opener='asset' root='ui_2' depth = '0'/>
+			<loader name='npk' opener='asset' root='ui_3' depth = '0'/>
+			<loader name='npk' opener='asset' root='others' depth = '0'/>
+			<loader name='npk' opener='asset' root='scenes3d' depth = '0'/>
+			<loader name='npk' opener='asset' root='model_1' depth = '0'/>
+			<loader name='npk' opener='asset' root='model_2' depth = '0'/>
+			<loader name='npk' opener='asset' root='model_3' depth = '0'/>
+			<loader name='npk' opener='asset' root='model_hero_1' depth = '0'/>
+			<loader name='npk' opener='asset' root='model_hero_2' depth = '0'/>
+			<loader name='npk' opener='asset' root='model_hero_3' depth = '0'/>
+			<loader name='npk' opener='asset' root='model_unit_1' depth = '0'/>
+			<loader name='npk' opener='asset' root='model_unit_2' depth = '0'/>
+			<loader name='npk' opener='asset' root='model_unit_3' depth = '0'/>
+			<loader name='npk' opener='asset' root='wwise_1' depth = '0'/>
+			<loader name='npk' opener='asset' root='wwise_2' depth = '0'/>
+
+			<loader name="discrete" opener='asset' root="res" depth="0" />
+
+		</filesystem>
+
+		<filesystem name='script'>
+			<loader name='discrete' opener='os' root='%DOC_DIR%\script' depth = '0' encode_path='True' encode_content='False' />
+			<loader name='discrete' opener='os' root='%WORK_DIR%\script' depth = '0'/>
+			<loader name='npk' opener='os' root='%WORK_DIR%\script' depth = '0'/>
+			<loader name='npk' opener='asset' root="script" depth="0" />
+			<loader name='npk' opener='obb' root='script' depth = '0'/>
+			<loader name="discrete" opener='asset' root="script" depth="0" />
+		</filesystem>
+	</filesystems>
+	
+</ppg3d>

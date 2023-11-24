@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/netease_mpay_oversea__channel_login_home" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_gravity="center|right|top" android:id="@id/netease_mpay_oversea__close" android:background="@drawable/netease_mpay_oversea__login_close" android:layout_width="@dimen/netease_mpay_oversea__icon_30" android:layout_height="@dimen/netease_mpay_oversea__icon_30" android:layout_marginTop="@dimen/netease_mpay_oversea__margin_20" android:layout_marginRight="@dimen/netease_mpay_oversea__margin_55" android:layout_marginEnd="@dimen/netease_mpay_oversea__margin_55" />
+</FrameLayout>

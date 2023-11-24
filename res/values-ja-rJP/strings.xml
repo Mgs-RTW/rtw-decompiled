@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="unisdk_protocol_accept">同意する</string>
+    <string name="unisdk_protocol_confirm">確認</string>
+    <string name="unisdk_protocol_reject">キャンセル</string>
+    <string name="unisdk_protocol_title">利用規約</string>
+    <string name="unisdk_protocol_cancel">いいえ</string>
+    <string name="unisdk_protocol_network_error">ネットワークが不安定です。確認の後もう一度お試しください</string>
+    <string name="unisdk_protocol_reject_confirm_back">戻る</string>
+    <string name="unisdk_protocol_reject_confirm_msg">この利用規約に同意されない場合、本ゲームをご利用いただくことはできません。よろしいでしょうか？</string>
+    <string name="unisdk_protocol_reject_confirm_ok">アプリ終了</string>
+    <string name="unisdk_protocol_retry">リトライ</string>
+</resources>
